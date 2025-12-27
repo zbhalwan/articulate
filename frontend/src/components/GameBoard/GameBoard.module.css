@@ -1,0 +1,301 @@
+.boardContainer {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.space {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.space:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.spaceLabel {
+  font-size: 0.65rem;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.spaceNumber {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(0, 0, 0, 0.2);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.startSpace {
+  background: linear-gradient(135deg, #FFD93D 0%, #FFA500 100%) !important;
+  border-color: #FF8C00;
+  animation: pulse 2s infinite;
+}
+
+.finishSpace {
+  background: linear-gradient(135deg, #FFD700 0%, #FF6B00 100%) !important;
+  border-color: #FF8C00;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.teamMarkers {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.teamMarker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 0.7rem;
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.teamInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.teamCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 3px solid;
+  transition: all 0.3s ease;
+}
+
+.activeTeam {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+.teamHeader {
+  padding: 0.75rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.turnBadge {
+  background: rgba(255, 255, 255, 0.3);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.teamScore {
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.playerList {
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.playerName {
+  background: #f8f9ff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .board {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
+    padding: 0.75rem;
+  }
+
+  .space {
+    padding: 0.25rem;
+    border-width: 2px;
+  }
+
+  .spaceLabel {
+    font-size: 0.5rem;
+  }
+
+  .spaceNumber {
+    width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+  }
+
+  .teamMarker {
+    width: 22px;
+    height: 22px;
+    font-size: 0.6rem;
+  }
+
+  .teamHeader {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .turnBadge {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .teamScore {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .playerList {
+    padding: 0.5rem;
+  }
+
+  .playerName {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .board {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.3rem;
+    padding: 0.5rem;
+  }
+
+  .space {
+    border-radius: 8px;
+  }
+
+  .spaceLabel {
+    font-size: 0.45rem;
+  }
+
+  .spaceNumber {
+    width: 14px;
+    height: 14px;
+    font-size: 0.5rem;
+  }
+
+  .teamMarker {
+    width: 18px;
+    height: 18px;
+    font-size: 0.55rem;
+  }
+
+  .teamInfo {
+    gap: 0.5rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 900px) and (orientation: landscape) {
+  .boardContainer {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1rem;
+    align-items: start;
+  }
+
+  .board {
+    max-width: 500px;
+  }
+
+  .teamInfo {
+    grid-template-columns: 1fr;
+    margin-top: 0;
+  }
+}
