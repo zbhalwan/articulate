@@ -1,1 +1,1 @@
-# atriculate
+# articulate
