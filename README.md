@@ -170,31 +170,6 @@ The app is fully optimized for mobile devices:
 - Optimized font sizes and spacing for mobile
 - Smooth animations and transitions
 
-## Production Deployment
-
-### Backend Deployment
-- Deploy to any Node.js hosting (Heroku, Railway, DigitalOcean, etc.)
-- Set `PORT` environment variable
-- Set `FRONTEND_URL` to your frontend domain
-
-### Frontend Deployment
-- Deploy to Vercel (recommended for Next.js)
-- Set `NEXT_PUBLIC_BACKEND_URL` to your backend URL
-- Run `npm run build` for production build
-
-## Environment Variables
-
-### Frontend (.env.local)
-```
-NEXT_PUBLIC_BACKEND_URL=http://localhost:3001
-```
-
-### Backend (.env)
-```
-PORT=3001
-FRONTEND_URL=http://localhost:3000
-```
-
 ## Future Enhancements
 
 - [ ] Add more word categories
